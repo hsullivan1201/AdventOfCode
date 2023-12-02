@@ -1,8 +1,4 @@
-use core::num;
 use std::collections::HashMap;
-use std::fs::File;
-use std::io::prelude::*;
-use std::str::FromStr;
 
 fn main(){
     let lines = include_str!("input").lines();
