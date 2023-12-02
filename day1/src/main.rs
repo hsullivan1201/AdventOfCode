@@ -1,3 +1,5 @@
+use core::num;
+use std::collections::HashMap;
 use std::fs::File;
 use std::io::prelude::*;
 use std::str::FromStr;
@@ -26,4 +28,24 @@ fn main(){
         sum += stringSum.parse::<i32>().unwrap();
     }
     println!("Sum is {}", sum);
+}
+
+fn part2 () {
+    let mut numsList = HashMap::from([
+        ("one", 1),
+        ("two", 2),
+        ("three", 3),
+        ("four", 4),
+        ("five", 5),
+        ("six", 6),
+        ("seven", 7),
+        ("eight", 8),
+        ("nine", 9)]);
+    let lines = include_str!("input").lines();
+    let lines2 = "two1nine\neightwothree\nabcone2threexyz\nxtwone3four
+        \n4nineeightseven2\nzoneight234\n7pqrstsixteen".lines();
+    let mut sum = 0;
+    for line in lines {
+        let matches: Vec<&str> = line.rmatches(numsList).collect();
+    }
 }
