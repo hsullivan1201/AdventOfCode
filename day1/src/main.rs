@@ -46,6 +46,9 @@ fn part2 () {
         \n4nineeightseven2\nzoneight234\n7pqrstsixteen".lines();
     let mut sum = 0;
     for line in lines {
-        let matches: Vec<&str> = line.rmatches(numsList).collect();
+        let keys:Vec<&str> = numsList.keys().collect();
+        for key in keys {
+            let matches: Vec<&str> = line.rmatches(key).collect();
+        }
     }
 }
