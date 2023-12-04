@@ -9,7 +9,6 @@ fn main() {
         let mut stringSum:String = "".to_owned();
         let secondDig = charList.nth(0).unwrap();
         let thirdDig = charList.nth(0).unwrap();
-        println!("third dig is {}",thirdDig);
         stringSum.push(gameNum);
         if secondDig.is_numeric() {
             //println!("Second digit exits, it is {}, first is {}",secondDig,gameNum);
@@ -21,7 +20,7 @@ fn main() {
 
         let gameNumInt = stringSum.parse::<i32>().unwrap();
         let mut i = 0;
-        let mut marbleNum = -1;
+        let mut marbleNum = 0;
         let mut marbleNumStr:String = "".to_string();
         for oneChar in line.chars() {
             if ((i > 6) & oneChar.is_numeric()) {
@@ -47,21 +46,16 @@ fn main() {
                     println!("invalid at {} in game {}",marbleNum,gameNumInt);
                     isValid = false;
                 }
-                else {
-                    // println!("marbleNum is valid at {}, colour is {}",marbleNum,line.chars().nth(i+2).unwrap());
-                }
+                
             }
             i += 1;
         }
         if isValid {
-            println!("Game {} is valid",gameNumInt);
             gameSum += gameNumInt;
+            println!("Game {} is valid, so sum is now {}",gameNumInt,gameSum);
         }
     }
     println!("Sum is {}",gameSum);
 }
 
-fn isGameValid() {
-
-}
 
