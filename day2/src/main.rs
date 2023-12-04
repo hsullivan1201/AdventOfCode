@@ -1,6 +1,6 @@
 fn main() {
     let lines = include_str!("input.txt").lines();
-    let mut gameSum = 0;
+    let mut gameSum = 5050;
     let mut isValid = true;
     for line in lines { 
         isValid = true;
@@ -35,7 +35,7 @@ fn main() {
                 }
                 marbleNum = marbleNumStr.parse::<i32>().unwrap();
                 if (marbleNum > 14) & line.chars().nth(i+2).unwrap().eq(&'b') {
-                    println!("invalid at {} in game {}",marbleNum,gameNumInt);
+                    println!("invalid at {} in game {}.",marbleNum,gameNumInt);
                     isValid = false;
                 }
                 else if (marbleNum > 13) & line.chars().nth(i+2).unwrap().eq(&'g') {
@@ -51,8 +51,12 @@ fn main() {
             i += 1;
         }
         if isValid {
-            gameSum += gameNumInt;
-            println!("Game {} is valid, so sum is now {}",gameNumInt,gameSum);
+            //gameSum += gameNumInt;
+            //println!("Game {} is valid, so sum is now {}",gameNumInt,gameSum);
+        }
+        else {
+            gameSum -= gameNumInt;
+            println!("INVALID - subtracting {} so total is now {}.",gameNumInt,gameSum);
         }
     }
     println!("Sum is {}",gameSum);
