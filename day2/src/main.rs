@@ -8,13 +8,15 @@ fn main() {
         let gameNum = charList.nth(5).unwrap();
         let mut stringSum:String = "".to_owned();
         let secondDig = charList.nth(0).unwrap();
+        let thirdDig = charList.nth(0).unwrap();
+        println!("third dig is {}",thirdDig);
         stringSum.push(gameNum);
-        if (secondDig.is_numeric()) {
-            println!("Second digit exits, it is {}, first is {}",secondDig,gameNum);
+        if secondDig.is_numeric() {
+            //println!("Second digit exits, it is {}, first is {}",secondDig,gameNum);
             stringSum.push(secondDig);
-        }
-        else {
-            println!("{} is not a digit, so number is just {}",secondDig,gameNum);
+            if thirdDig.eq(&'0'){
+                stringSum.push(thirdDig);
+            }
         }
 
         let gameNumInt = stringSum.parse::<i32>().unwrap();
